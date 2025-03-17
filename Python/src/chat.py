@@ -21,6 +21,7 @@ def initialize_kernel():
    #Challenge 02 - Chat Completion Service
    #Challenge 05 - Add Text Embedding service for semantic search
    #Challenge 07 - Add DALL-E image generation service
+   chat_completion_service = kernel.get_service(type=ChatCompletionClientBase)
    return kernel
 
 
