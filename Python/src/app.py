@@ -4,6 +4,7 @@ import logging
 from chat import process_message, reset_chat_history
 from multi_agent import run_multi_agent
 
+
 #Configure logging
 logging.basicConfig(level=logging.INFO)
 
@@ -87,8 +88,12 @@ def multi_agent():
                 st.session_state.multi_agent_history.append({"role": "user", "message": user_input})
                 with st.spinner("Agents are collaborating..."):
                     result = asyncio.run(run_multi_agent(user_input))
-                for response in result:
-                    st.session_state.multi_agent_history.append({"role": response['role'], "message": response['message']})
+                    # Fix: Extract messages from the result dictionary and map content to message
+                    for response in result["messages"]:
+                        st.session_state.multi_agent_history.append({
+                            "role": response["role"],
+                            "message": response["content"]
+                        })
 
             except Exception as e:
                 logging.error(f"Error in multi-agent system: {e}")
