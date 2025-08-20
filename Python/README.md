@@ -23,6 +23,9 @@ Participants will learn how to:
 - Working with Image generation
 - Multi-Agent workflows
 
+## Getting started
+- create Azure OpenAI Project, populate the AOAI Endpoint, key and geolocation API
+- then run the chat.py file with streamlit run app.py
 ## Challenges
 
 - [Challenge 00](./challenges/Challenge-00.md): Prerequisites
